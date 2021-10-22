@@ -1,20 +1,19 @@
 #pragma once
-// dllmain.cpp : Определяет точку входа для приложения DLL.
 #include "pch.h"
 #define _SILENCE_AMP_DEPRECATION_WARNINGS
 #include <amp.h>
 #include <iostream>
 #include <fstream>
-using namespace concurrency;
 #include <iostream>
 #include <type_traits>
 
 #ifdef GPGPURAND_EXPORTS
-
-#define GPGPURAND_API __declspec(dllexport)
+	#define GPGPURAND_API __declspec(dllexport)
 #else
-#define GPGPURAND_API __declspec(dllimport)
-#endif //AUTOCLICKER_EXPORTS
+	#define GPGPURAND_API __declspec(dllimport)
+#endif //GPGPURAND_EXPORTS
+
+using namespace concurrency;
 
 inline int __fastcall rand(const int min, const int max, unsigned int seed) restrict(amp, cpu)
 {
