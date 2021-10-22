@@ -9,11 +9,11 @@ using namespace concurrency;
 #include <iostream>
 #include <type_traits>
 
-#ifdef AUTOCLICKER_EXPORTS
+#ifdef GPGPURAND_EXPORTS
 
-#define AUTOCLICKER_API __declspec(dllexport)
+#define GPGPURAND_API __declspec(dllexport)
 #else
-#define AUTOCLICKER_API __declspec(dllimport)
+#define GPGPURAND_API __declspec(dllimport)
 #endif //AUTOCLICKER_EXPORTS
 
 inline int __fastcall rand(const int min, const int max, unsigned int seed) restrict(amp, cpu)
@@ -148,7 +148,7 @@ constexpr void TypeOfByteCountGPU(const BYTE byte_count)
 }
 
 
-extern "C" AUTOCLICKER_API void __cdecl FillArrayRandCPU
+extern "C" GPGPURAND_API void __cdecl FillArrayRandCPU
 (
     PtrInf<Ptr<void>, 1> data, 
     const BYTE byte_count, 
@@ -157,7 +157,7 @@ extern "C" AUTOCLICKER_API void __cdecl FillArrayRandCPU
     const int max
 );
 
-extern "C" AUTOCLICKER_API void __cdecl FillArrayRandGPU
+extern "C" GPGPURAND_API void __cdecl FillArrayRandGPU
 (
     PtrInf<Ptr<void>, 1> data, 
     const BYTE byte_count, 
